@@ -114,11 +114,15 @@
     color: rgb(29, 153, 255);
   }
   
+  .subtitle{
+    margin-top: -35px;
+    margin-bottom: 15px;
+  }
   /* CARDS */
   .card {
     margin: 0 0 50px 0;
     
-   
+   background-color: var(--primary);
   }
   
   .card-header {
@@ -131,7 +135,20 @@
   .card-body {
     padding: 0.5%;
   }
-  
+  .card-text{
+    font-size: 1rem;
+    color:#e3d7c1;
+  }
+  .card-title{
+    color:#e3d7c1;
+  }
+  .future{
+    background-color: #b95323;
+  }
+  .current{
+    color:#b95323;
+  }
+ 
   /* FORM */
   .form-label,
   .form-input,
