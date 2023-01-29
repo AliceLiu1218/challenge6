@@ -30,11 +30,16 @@ var getGeoCoordination = function (city) {
   //var apiURL = api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
   fetch(lanlonURL)
-    .then (function (reponse){
-      console.log(reponse);
+    .then (function (response){
+      console.log(response);
       if (response.ok){
         response.json().then(function (data){
           console.log(data);
+          var lat = data[0].lat;
+          var lon = data[0].lon;
+          console.log(lat);
+          console.log(lon);
+          getWeather(lat,lon);
         })
       }
     else {
@@ -43,5 +48,19 @@ var getGeoCoordination = function (city) {
     })
 }
 
+var getWeather = function (lat,lon) {
+  var apiURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
 
+  fetch (apiURL)
+    .then (function (response){
+      console.log(response);
+      if (response.ok){
+        response.json().then(function (data){
+          console.log(data);
+        })
+      }
+    })
+}
+//var apiUrl = `${weatherApiRootUrl}/geo/1.0/direct?q=${search}&limit=5&appid=${weatherApiKey}`;
+//var apiUrl = `${weatherApiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${weatherApiKey}`;
 searchBtn.addEventListener('click', buttonClickHandler);
