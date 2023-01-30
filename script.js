@@ -1,6 +1,7 @@
 var cityInputEl = document.querySelector("#cityInput")
 var searchBtn = document.querySelector("#searchButton");
 var searchRecord = document.querySelector("#historyContainer");
+var day1 = document.querySelector("#day1");
 
 var buttonClickHandler = function (event) {
     event.preventDefault();
@@ -56,13 +57,56 @@ var getWeather = function (lat,lon) {
       console.log(response);
       if (response.ok){
         response.json().then(function (data){
-          var location = data.list;
-          console.log(data);
-          console.log(location);
+          populate(data);
         })
       }
     })
 }
-//var apiUrl = `${weatherApiRootUrl}/geo/1.0/direct?q=${search}&limit=5&appid=${weatherApiKey}`;
-//var apiUrl = `${weatherApiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${weatherApiKey}`;
+
+var populate = function (data) {
+  
+  var date = data.list[0].dt_txt;
+  var temp = data.list[0].main.temp;
+  var wind = data.list[0].wind.speed;
+  var humidity = data.list[0].main.humidity;
+  var date1 = document.querySelector("#date-1");
+  date1.textContent = cityInputEl + date;
+  var temp1 = document.querySelector("#temp-1");
+  temp1.textContent =temp;
+  var wind1 = document.querySelector("#wind-1");
+  wind1.textContent = wind;
+  var humidity1 = document.querySelector("#humidity-1");
+  humidity1.textContent = humidity;
+  var day1 = document.querySelector("#day1");
+  day1.append(date1);
+  day1.append(temp1);
+  day1.append(wind1);
+  day1.append(humidity1);
+
+  for (var i=0;i<6;i++){
+    var date = data.list[i].dt_txt;
+    var temp = data.list[i].main.temp;
+    var wind = data.list[i].wind.speed;
+    var humidity = data.list[i].main.humidity;
+
+    var day1 = document.querySelector("#day`i`");
+
+    var date1 = document.querySelector("#date-`i`");
+    date1.textContent = cityInputEl + date;
+
+    var temp1 = document.querySelector("#temp-`i`");
+    temp1.textContent =temp;
+
+    var wind1 = document.querySelector("#wind-`i`");
+    wind1.textContent = wind;
+
+    var humidity1 = document.querySelector("#humidity-`i`");
+    humidity1.textContent = humidity;
+
+    day1.append(date1);
+    day1.append(temp1);
+    day1.append(wind1);
+    day1.append(humidity1);
+  }
+}
 searchBtn.addEventListener('click', buttonClickHandler);
