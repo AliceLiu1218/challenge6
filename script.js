@@ -56,7 +56,9 @@ var getWeather = function (lat,lon) {
       console.log(response);
       if (response.ok){
         response.json().then(function (data){
+          var location = data.list;
           console.log(data);
+          console.log(location);
         })
       }
     })
