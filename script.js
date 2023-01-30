@@ -89,19 +89,19 @@ var populate = function (data) {
     var wind = data.list[i].wind.speed;
     var humidity = data.list[i].main.humidity;
 
-    var day1 = document.querySelector("#day`i`");
+    var day1 = document.querySelector(`#day${i}`);
 
-    var date1 = document.querySelector("#date-`i`");
+    var date1 = document.querySelector(`#date-${i}`);
     date1.textContent = cityInputEl + date;
 
-    var temp1 = document.querySelector("#temp-`i`");
-    temp1.textContent =temp;
+    var temp1 = document.querySelector(`#temp-${i}`);
+    temp1.textContent ='Temp: ' + temp;
 
-    var wind1 = document.querySelector("#wind-`i`");
-    wind1.textContent = wind;
+    var wind1 = document.querySelector(`#wind-${i}`);
+    wind1.textContent ='Wind: ' +  wind;
 
-    var humidity1 = document.querySelector("#humidity-`i`");
-    humidity1.textContent = humidity;
+    var humidity1 = document.querySelector(`#humidity-${i}`);
+    humidity1.textContent ='Humidity:' + humidity;
 
     day1.append(date1);
     day1.append(temp1);
