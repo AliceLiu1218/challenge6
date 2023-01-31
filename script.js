@@ -29,12 +29,16 @@ var buttonClickHandler = function (event) {
       }
 }
 
+
 var historyClickHandler = function (event) {
-  var city = ${#cityButton}.value();
-  getGeoCoordination(city);
-  getWeather(lat,lon);
-  populate = (data);
+  
+  var cityBtn = document.querySelector("#cityButton").innerHTML;
+  console.log('DATA is here',cityBtn);
+  getGeoCoordination(cityBtn);
+  
 }
+
+
 var getGeoCoordination = function (city) {
   // get lat,lon
   var lanlonURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
@@ -111,5 +115,4 @@ var populate = function (data) {
     day1.append(humidity1);
   }
 }
-searchBtn.addEventListener('click', buttonClickHandler);
 searchBtn.addEventListener('click', buttonClickHandler);
