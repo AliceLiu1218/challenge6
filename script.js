@@ -41,7 +41,7 @@ var historyClickHandler = function (event) {
 
 var getGeoCoordination = function (city) {
   // get lat,lon
-  var lanlonURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
+  var lanlonURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
   //var apiURL = api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
   fetch(lanlonURL)
@@ -64,7 +64,7 @@ var getGeoCoordination = function (city) {
 }
 
 var getWeather = function (lat,lon) {
-  var apiURL = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
+  var apiURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=0d990e0dff1f939ceefa0f13e3b23ec6';
 
   fetch (apiURL)
     .then (function (response){
